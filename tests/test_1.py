@@ -1,18 +1,5 @@
 import pytest
-from my_package.my_module import my_function
+from semantic_graph.text_processing import clean_text
 
-@pytest.fixture
-def a():
-    return 2
-
-@pytest.fixture
-def b():
-    return 2
-
-@pytest.fixture
-def c():
-    return 4
-
-def test_my_function(a, b, c):
-    assert my_function(a, b) == c
-
+def test_clean_text():
+    assert clean_text("Пример #текста с [ссылкой] и спецсимволами!") == "пример текста с ссылкой и спецсимволами"
